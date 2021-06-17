@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'desafio_tecnico_django.youngers',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +70,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'desafio_tecnico_django.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

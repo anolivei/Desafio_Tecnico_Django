@@ -62,6 +62,11 @@ $ django-admin startapp "app_name"
 # Allow data base
 $ python manage.py migrate
 
+# To create migrations
+$ python manage.py makemigrations
+
+$ python manage.py shell
+
 # To see all the packages installed
 $ pip freeze
 ```
