@@ -14,10 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from desafio_tecnico_django.youngers.views import youngers
+from django.urls import path, include
+from rest_framework import views
+#from desafio_tecnico_django.youngers.views import youngers
+from desafio_tecnico_django.youngers.views import YoungersViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'youngers', YoungersViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('youngers/', youngers)
+    path('', include(router.urls))
+    #path('youngers/', youngers)
 ]
