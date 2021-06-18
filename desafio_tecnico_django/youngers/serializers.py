@@ -5,6 +5,17 @@ class PersonSerializer(serializers.ModelSerializer):
 #    age = serializers.SerializerMethodField
     class Meta:
         model = Person
-        fields = ['nome', 'cpf', 'rg']
+        fields = ['nome',
+                    'cpf',
+                    'rg',
+                    'data_nasc',
+                    'sexo',
+                    'mae',
+                    'pai',
+                    'celular',
+                    'altura',
+                    'peso',
+                    'tipo_sanguineo'
+                    ]
 
 #def age(self):
