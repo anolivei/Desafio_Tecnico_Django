@@ -65,6 +65,9 @@ $ python manage.py migrate
 # To create migrations
 $ python manage.py makemigrations
 
+# running the server
+$ python manage.py runserver
+
 $ python manage.py migrate your_app zero
 
 $ python manage.py shell
