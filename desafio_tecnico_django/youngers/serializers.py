@@ -1,9 +1,10 @@
-from django.contrib import admin
+from rest_framework import serializers
 from desafio_tecnico_django.youngers.models import Person
 
-class People(admin.ModelAdmin):
-    list_display = ('id',
-                    'nome',
+class PersonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = ['nome',
                     'cpf',
                     'rg',
                     'data_nasc',
@@ -13,9 +14,5 @@ class People(admin.ModelAdmin):
                     'celular',
                     'altura',
                     'peso',
-                    'tipo_sanguineo')
-    list_display_links = ('id', 'nome')
-    search_fields = ('nome',)
-    list_per_page = 20
-
-admin.site.register(Person, People)
+                    'tipo_sanguineo'
+                    ]
