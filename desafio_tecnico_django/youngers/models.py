@@ -14,3 +14,6 @@ class Person(models.Model):
 	altura = models.FloatField(_("altura"))
 	peso = models.FloatField(_("peso"))
 	tipo_sanguineo = models.CharField(_("tipo_sanguineo"), max_length=5)
+
+def __str__(self):
+	return self.nome
