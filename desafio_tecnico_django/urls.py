@@ -1,18 +1,20 @@
 from django.contrib import admin
 from django.urls import path, include
-from desafio_tecnico_django.youngers.views import AllViewSet, YoungersViewSet, YoungersFilter, OldersViewSet, OldersFilter, ListaTipoSangue
 from rest_framework import routers
 from desafio_tecnico_django.youngers import views
 
 router = routers.DefaultRouter()
-router.register('all', AllViewSet, basename='all')
-router.register('younger', YoungersViewSet, basename='younger')
-router.register('older', OldersViewSet, basename='older')
+router.register('all', views.AllViewSet, basename='all')
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
 	path('', include(router.urls)),
-	path('bloodtype/<str:pk>/', ListaTipoSangue.as_view()),
-	path('youngers/<int:pk>/', YoungersFilter.as_view()),
-	path('olders/<int:pk>/', OldersFilter.as_view())
+	path('youngers/', views.Youngers.as_view()),
+	path('youngers/<int:pk>/', views.YoungersFilter.as_view()),
+	path('olders/', views.Olders.as_view()),
+	path('olders/<int:pk>/', views.OldersFilter.as_view()),
+	path('peoples/', views.Peoples.as_view()),
+	path('peoples/<str:pk>/', views.ListByCpf.as_view()),
+	path('blood-type/stats/', views.Blood.as_view()),
+	path('blood-type/stats/<str:pk>/', views.ListByBloodType.as_view()),
 ]
