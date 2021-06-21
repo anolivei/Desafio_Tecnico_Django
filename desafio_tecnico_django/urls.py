@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from desafio_tecnico_django.youngers import views
+from desafio_tecnico_django.solcap import views
 
 router = routers.DefaultRouter()
 router.register('all', views.AllViewSet, basename='all')

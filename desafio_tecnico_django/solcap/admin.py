@@ -1,5 +1,5 @@
 from django.contrib import admin
-from desafio_tecnico_django.youngers.models import Person
+from desafio_tecnico_django.solcap.models import Person
 
 class People(admin.ModelAdmin):
     list_display = ('id',

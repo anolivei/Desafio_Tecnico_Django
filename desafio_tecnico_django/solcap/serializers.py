@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from desafio_tecnico_django.youngers.models import Person, Blood, Gender
+from desafio_tecnico_django.solcap.models import Person, Blood, Gender
 
 class PersonSerializer(serializers.ModelSerializer):
 	class Meta:

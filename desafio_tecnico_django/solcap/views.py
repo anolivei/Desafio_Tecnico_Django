@@ -1,5 +1,5 @@
-from desafio_tecnico_django.youngers.models import Person
-from desafio_tecnico_django.youngers.serializers import PersonSerializer, BloodSerializer, GenderSerializer
+from desafio_tecnico_django.solcap.models import Person
+from desafio_tecnico_django.solcap.serializers import PersonSerializer, BloodSerializer, GenderSerializer
 from rest_framework import viewsets, generics
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
