@@ -2,11 +2,10 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 class Person(models.Model):
-	id = models.AutoField(primary_key=True)
 	nome = models.CharField(_("nome"), max_length=255)
 	cpf = models.CharField(_("cpf"), max_length=20)
 	rg = models.CharField(_("rg"), max_length=20)
-	data_nasc = models.DateField(_("data_nasc"), auto_now=True)
+	data_nasc = models.DateField(_("data_nasc"))
 	sexo = models.CharField(_("sexo"), max_length=10)
 	mae = models.CharField(_("mae"), max_length=255)
 	pai = models.CharField(_("pai"), max_length=255)
@@ -14,6 +13,14 @@ class Person(models.Model):
 	altura = models.FloatField(_("altura"))
 	peso = models.FloatField(_("peso"))
 	tipo_sanguineo = models.CharField(_("tipo_sanguineo"), max_length=5)
+
+class Blood(models.Model):
+	tipo_sanguineo = models.CharField(_("tipo_sanguineo"), max_length=5)
+	frequencia = models.IntegerField(_("frequencia"))
+
+class Gender(models.Model):
+	sexo = models.CharField(_("sexo"), max_length=10)
+	porcentagem = models.FloatField(_("porcentagem"))
 
 def __str__(self):
 	return self.nome

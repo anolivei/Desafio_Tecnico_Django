@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'desafio_tecnico_django.youngers',
+    'desafio_tecnico_django.solcap',
     'django_filters',
     'rest_framework',
 ]

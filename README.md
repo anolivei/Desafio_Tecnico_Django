@@ -65,8 +65,12 @@ $ python manage.py migrate
 # To create migrations
 $ python manage.py makemigrations
 
+# running the server
+$ python manage.py runserver
+
 $ python manage.py migrate your_app zero
 
+$ python manage.py createsuperuser --username=joe --email=joe@example.com
 $ python manage.py shell
 $ Person.objects.create(nome="maria da silva", cpf=11122233344, rg=123456789)
 $ test = Person.objects.all()[0]
@@ -77,7 +81,7 @@ $ test.nome
 $ sudo apt install sqlite3
 $ sqlite3 db.sqlite3
 sqlite> .mode csv
-qlite> .import people_data.csv youngers_person
+qlite> .import people_data.csv solcap_person
 # To see all the packages installed
 $ pip freeze
 ```
