@@ -4,6 +4,7 @@ from rest_framework import viewsets, generics
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.db.models import Count
+from django.db.models import F
 
 class AllViewSet(viewsets.ModelViewSet):
 	"""Listando todas as pessoas em ordem de id"""
@@ -103,7 +104,7 @@ class Gender(generics.ListAPIView):
 		total = Person.objects.all().count()
 		queryset = (Person.objects
 			.values('sexo')
-			.annotate(porcentagem=Count('sexo'))
+			.annotate(porcentagem=Count('sexo') * 100/total)
 			.order_by('porcentagem'))
 		return queryset
 	serializer_class = GenderSerializer
