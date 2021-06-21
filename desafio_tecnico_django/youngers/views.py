@@ -1,10 +1,9 @@
 from desafio_tecnico_django.youngers.models import Person
-from desafio_tecnico_django.youngers.serializers import PersonSerializer
+from desafio_tecnico_django.youngers.serializers import PersonSerializer, BloodSerializer, GenderSerializer
 from rest_framework import viewsets, generics
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.db.models import Count
-from django.http import HttpResponse
 
 class AllViewSet(viewsets.ModelViewSet):
 	"""Listando todas as pessoas em ordem de id"""
@@ -67,13 +66,25 @@ class ListByCpf(generics.ListAPIView):
 	authentication_classes = [BasicAuthentication]
 	permission_classes = [IsAuthenticated]
 
+class PeoplesSearch(generics.ListAPIView):
+	"""Retorna dados de uma pessoa de acordo com o nome ou parte do nome"""
+	def get_queryset(self):
+		search = self.kwargs['pk']
+		queryset = Person.objects.filter(nome__contains=search)
+		return queryset
+	serializer_class = PersonSerializer
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
+
 class Blood(generics.ListAPIView):
-	def get_result():
-		blood = (Person.objects
+	"""Listando frequencias dos tipos sanguineos"""
+	def get_queryset(self):
+		queryset = (Person.objects
 			.values('tipo_sanguineo')
-			.annotate(frequency=Count('tipo_sanguineo'))
-			.order_by())
-		return HttpResponse('blood')
+			.annotate(frequencia=Count('tipo_sanguineo'))
+			.order_by('frequencia'))
+		return queryset
+	serializer_class = BloodSerializer
 	authentication_classes = [BasicAuthentication]
 	permission_classes = [IsAuthenticated]
 
@@ -86,3 +97,15 @@ class ListByBloodType(generics.ListAPIView):
 	authentication_classes = [BasicAuthentication]
 	permission_classes = [IsAuthenticated]
 
+class Gender(generics.ListAPIView):
+	"""Listando porcentagem dos gêneros"""
+	def get_queryset(self):
+		total = Person.objects.all().count()
+		queryset = (Person.objects
+			.values('sexo')
+			.annotate(porcentagem=Count('sexo'))
+			.order_by('porcentagem'))
+		return queryset
+	serializer_class = GenderSerializer
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]

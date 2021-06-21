@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from desafio_tecnico_django.youngers.models import Person
+from desafio_tecnico_django.youngers.models import Person, Blood, Gender
 
 class PersonSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -16,4 +16,18 @@ class PersonSerializer(serializers.ModelSerializer):
 					'altura',
 					'peso',
 					'tipo_sanguineo'
+					]
+
+class BloodSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Blood
+		fields = [	'tipo_sanguineo',
+					'frequencia'
+					]
+
+class GenderSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Gender
+		fields = [	'sexo',
+					'porcentagem'
 					]

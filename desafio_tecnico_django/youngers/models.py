@@ -14,5 +14,13 @@ class Person(models.Model):
 	peso = models.FloatField(_("peso"))
 	tipo_sanguineo = models.CharField(_("tipo_sanguineo"), max_length=5)
 
+class Blood(models.Model):
+	tipo_sanguineo = models.CharField(_("tipo_sanguineo"), max_length=5)
+	frequencia = models.IntegerField(_("frequencia"))
+
+class Gender(models.Model):
+	sexo = models.CharField(_("sexo"), max_length=10)
+	porcentagem = models.FloatField(_("porcentagem"))
+
 def __str__(self):
 	return self.nome
