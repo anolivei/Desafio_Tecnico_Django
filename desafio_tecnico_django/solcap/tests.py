@@ -18,4 +18,3 @@ class PersonTestCase(APITestCase):
 					altura='1,80',
 					peso='80',
 					tipo_sanguineo='AB+')
-
