@@ -58,11 +58,14 @@ Before starting, you need to have all the [requirements](https://github.com/anol
 # Clone this project
 $ git clone https://github.com/anoliveisolcap/desafio_tecnico_django
 
-# Access
+# Access the directory
 $ cd desafio_tecnico_django
 
-# running the server
+# Run the server
 $ python manage.py runserver
+
+# Test (test while your server is running xD)
+$ python manage.py test
 ```
 
 ## CheatSheet ##
