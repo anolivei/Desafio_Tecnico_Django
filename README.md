@@ -1,16 +1,16 @@
 
-<h1 align="center">Desafio Técnico Django</h1>
+<h1 align="center">Django Technical Challenge</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/anolivei/desafio_tecnico_django?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/anoliveisolcap/desafio_tecnico_django?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/anolivei/desafio_tecnico_django?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/anoliveisolcap/desafio_tecnico_django?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/anolivei/desafio_tecnico_django?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/anoliveisolcap/desafio_tecnico_django?color=56BEB8">
 
-<img alt="Github forks" src="https://img.shields.io/github/forks/anolivei/desafio_tecnico_django?color=56BEB8">
+<img alt="Github forks" src="https://img.shields.io/github/forks/anoliveisolcap/desafio_tecnico_django?color=56BEB8">
 
-<img alt="Github stars" src="https://img.shields.io/github/stars/anolivei/desafio_tecnico_django?color=56BEB8">
+<img alt="Github stars" src="https://img.shields.io/github/stars/anoliveisolcap/desafio_tecnico_django?color=56BEB8">
 </p>
 
 <p align="center">
@@ -19,17 +19,25 @@
   <a href="#technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#starting">Starting</a> &#xa0; | &#xa0;
-  <a href="https://github.com/anolivei" target="_blank">Author</a>
+  <a href="#cheatsheet">CheatSheet</a> &#xa0; | &#xa0;
+  <a href="https://github.com/anoliveisolcap" target="_blank">Author</a>
 </p>
 
 <br>
 
 ## About ##
 
-Describe your project...
+A Web Application made in Django REST framework and Python.
 
 ## Features ##
-...
+- /all: Lists the entire dataset
+- /youngers/{n}: Returns a list of the n youngest people sorted ascending
+- /olders/{n}: Returns a list of the oldest people sorted ascending
+- /gender-distribution: Returns a Json with the percentage distribution of genders in the dataset: Ex.: {"Female" 51%, "Male": 49%}
+- /people/{cpf_without_punctuation}: Returns single person data in Json format
+- /blood-type/stats: returns the absolute distribution of blood groups: {"B-": 20, "O+": 10...}
+- /peoples: List the names of all people in the dataset in alphabetical order
+- /peoples/search?q=query: Search for people by name or by part of the name (case insensitive)
 
 ## Technologies ##
 
@@ -37,22 +45,29 @@ The following tools were used in this project:
 
 - Python
 - Django
-- Django rest framework
+- Django REST framework
 
 
 ## Requirements ##
 
-Before starting :checkered_flag:, you need to have...
+Before starting, you need to have all the [requirements](https://github.com/anoliveisolcap/Desafio_Tecnico_Django/blob/main/requirements.txt) installed
 
 ## Starting ##
 
 ```shell
 # Clone this project
-$ git clone https://github.com/anolivei/desafio_tecnico_django
+$ git clone https://github.com/anoliveisolcap/desafio_tecnico_django
 
 # Access
 $ cd desafio_tecnico_django
 
+# running the server
+$ python manage.py runserver
+```
+
+## CheatSheet ##
+
+```shell
 # Start project
 $ django-admin startproject "project_name" .
 
@@ -65,23 +80,31 @@ $ python manage.py migrate
 # To create migrations
 $ python manage.py makemigrations
 
-# running the server
-$ python manage.py runserver
-
+# To clean all migrations
 $ python manage.py migrate your_app zero
 
-$ python manage.py createsuperuser --username=joe --email=joe@example.com
-$ python manage.py shell
-$ Person.objects.create(nome="maria da silva", cpf=11122233344, rg=123456789)
-$ test = Person.objects.all()[0]
-$ test.nome
-'maria da silva'
+# to create a superuser
+$ python manage.py createsuperuser --username=your_name --email=your_email@example.com
 
 # sqlite importing data
 $ sudo apt install sqlite3
+
+# executing sqlite
 $ sqlite3 db.sqlite3
+
+# into the sqlite terminal
 sqlite> .mode csv
 qlite> .import people_data.csv solcap_person
+
+# To open a django's shell terminal
+$ python manage.py shell
+
+# To add data into a model - example
+$ Person.objects.create(nome="Maria da Silva", cpf="111.222.333-44", rg="11.222.333-4")
+$ test = Person.objects.all()[0]
+$ test.nome
+'Maria da Silva'
+
 # To see all the packages installed
 $ pip freeze
 ```
