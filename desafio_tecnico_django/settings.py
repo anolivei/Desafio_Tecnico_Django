@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ou-g+w9%1n+rc@-yn+$7+w#64lv!h0)i_r@*l-3dkz+90=*1q_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'desafio_tecnico_django.solcap',
     'django_filters',
     'rest_framework',
+    'admin_honeypot',
 ]
 
 MIDDLEWARE = [

@@ -8,6 +8,7 @@ router.register('all', views.AllViewSet, basename='all')
 
 urlpatterns = [
 	path('pikachu/', admin.site.urls),
+	path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
 	path('', include(router.urls)),
 	path('youngers/', views.Youngers.as_view()),
 	path('youngers/<int:pk>/', views.YoungersFilter.as_view()),
@@ -18,5 +19,5 @@ urlpatterns = [
 	path('peoples/<str:pk>/', views.ListByCpf.as_view()),
 	path('blood-type/stats/', views.Blood.as_view()),
 	path('blood-type/stats/<str:pk>/', views.ListByBloodType.as_view()),
-	path('gender-distribution/', views.Gender.as_view())
+	path('gender-distribution/', views.Gender.as_view()),
 ]
