@@ -7,7 +7,7 @@ router = routers.DefaultRouter()
 router.register('all', views.AllViewSet, basename='all')
 
 urlpatterns = [
-	path('admin/', admin.site.urls),
+	path('pikachu/', admin.site.urls),
 	path('', include(router.urls)),
 	path('youngers/', views.Youngers.as_view()),
 	path('youngers/<int:pk>/', views.YoungersFilter.as_view()),

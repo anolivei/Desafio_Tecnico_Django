@@ -9,15 +9,16 @@ class AllViewSet(viewsets.ModelViewSet):
 	"""Listando todas as pessoas em ordem de id"""
 	queryset = Person.objects.all()
 	serializer_class = PersonSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	http_method_names = ['get', 'post', 'put', 'path']
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class Youngers(generics.ListAPIView):
 	"""Listando as pessoas em ordem crescente de idade"""
 	queryset = Person.objects.all().order_by("-data_nasc")
 	serializer_class = PersonSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class YoungersFilter(generics.ListAPIView):
 	"""Listando n pessoas mais novas"""
@@ -26,15 +27,15 @@ class YoungersFilter(generics.ListAPIView):
 		queryset = Person.objects.all().order_by("-data_nasc")[:num]
 		return queryset
 	serializer_class = PersonSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class Olders(generics.ListAPIView):
 	"""Listando as pessoas em ordem decrescente de idade"""
 	queryset = Person.objects.all().order_by("data_nasc")
 	serializer_class = PersonSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class OldersFilter(generics.ListAPIView):
 	"""Listando n pessoas mais velhas"""
@@ -43,15 +44,15 @@ class OldersFilter(generics.ListAPIView):
 		queryset = Person.objects.all().order_by("data_nasc")[:num]
 		return queryset
 	serializer_class = PersonSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class Peoples(generics.ListAPIView):
 	"""Listando as pessoas em ordem alfabética"""
 	queryset = Person.objects.all().order_by("nome")
 	serializer_class = PersonSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class ListByCpf(generics.ListAPIView):
 	"""Retorna dados de uma pessoa de acordo com o CPF"""
@@ -63,8 +64,8 @@ class ListByCpf(generics.ListAPIView):
 		queryset = Person.objects.filter(cpf=num)
 		return queryset
 	serializer_class = PersonSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class PeoplesSearch(generics.ListAPIView):
 	"""Retorna dados de uma pessoa de acordo com o nome ou parte do nome"""
@@ -73,8 +74,8 @@ class PeoplesSearch(generics.ListAPIView):
 		queryset = Person.objects.filter(nome__contains=search)
 		return queryset
 	serializer_class = PersonSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class Blood(generics.ListAPIView):
 	"""Listando frequencias dos tipos sanguineos"""
@@ -85,8 +86,8 @@ class Blood(generics.ListAPIView):
 			.order_by('frequencia'))
 		return queryset
 	serializer_class = BloodSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class ListByBloodType(generics.ListAPIView):
 	"""Listando as pessoas de um tipo sanguineo"""
@@ -94,8 +95,8 @@ class ListByBloodType(generics.ListAPIView):
 		queryset = Person.objects.filter(tipo_sanguineo=self.kwargs['pk'])
 		return queryset
 	serializer_class = PersonSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]
 
 class Gender(generics.ListAPIView):
 	"""Listando porcentagem dos gêneros"""
@@ -107,5 +108,5 @@ class Gender(generics.ListAPIView):
 			.order_by('porcentagem'))
 		return queryset
 	serializer_class = GenderSerializer
-	#authentication_classes = [BasicAuthentication]
-	#permission_classes = [IsAuthenticated]
+	authentication_classes = [BasicAuthentication]
+	permission_classes = [IsAuthenticated]

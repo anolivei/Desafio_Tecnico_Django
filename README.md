@@ -61,6 +61,9 @@ $ git clone https://github.com/anoliveisolcap/desafio_tecnico_django
 # Access the directory
 $ cd desafio_tecnico_django
 
+# to create a superuser
+$ python manage.py createsuperuser --username=your_name --email=your_email@example.com
+
 # Run the server
 $ python manage.py runserver
 
@@ -85,9 +88,6 @@ $ python manage.py makemigrations
 
 # To clean all migrations
 $ python manage.py migrate your_app zero
-
-# to create a superuser
-$ python manage.py createsuperuser --username=your_name --email=your_email@example.com
 
 # sqlite importing data
 $ sudo apt install sqlite3
