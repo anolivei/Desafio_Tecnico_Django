@@ -97,7 +97,7 @@ $ sqlite3 db.sqlite3
 
 # into the sqlite terminal
 sqlite> .mode csv
-qlite> .import people_data.csv solcap_person
+sqlite> .import people_data.csv solcap_person
 
 # To open a django's shell terminal
 $ python manage.py shell
